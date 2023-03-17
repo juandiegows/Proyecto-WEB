@@ -15,7 +15,7 @@
             cancelButtonText : "No"
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "@Url.Action("Eliminar", "Usuario")" + "?id=" + id;
+                window.location = window.location.origin +  "@Url.Action("Eliminar", "Usuario")" + "/" + id;
             }
         })
     }
@@ -23,16 +23,37 @@
 </script>
 @if (@ViewBag.Eliminar) {
    <script>
-        window.history.pushState({}, null, '/Usuario/consulta');
+  
         Swal.fire(
             'Se ha Elimiando!',
             'Se ha Elimiando correctamente',
             'success'
-        )
-        @ViewBag.Eliminar = false;
+        ).then((result) => {
+            @ViewBag.Eliminar = false;
+            window.location =  "@Url.Action("Consulta", "Usuario")";
+        })
+  
 
    </script>
 }
+
+@if (@ViewBag.Actualizado) {
+    <script>
+
+        Swal.fire(
+            'Se ha Actualizado!',
+            'Se ha Actualizado correctamente',
+            'success'
+        ).then((result) => {
+        @ViewBag.Actualizado = false;
+            window.location = "@Url.Action("Consulta", "Usuario")";
+        })
+
+
+    </script>
+}
+
+
 
 <table class="table">
     <thead>
@@ -52,8 +73,10 @@
                 <td>@usuario.FechaNacimiento.ToShortDateString()</td>
                 <td>@usuario.Sexo</td>
                 <td><div class="acciones">
-                    
-                    <a onclick="javascript:Eliminar(@usuario.Id)" class="icon"><img src="/img/borrar.png" /></a> <a asp-controller="Usuario" asp-action="Editar" asp-route-id="@usuario.Id" class="icon"><img src="/img/editar.png" /></a></div></td>
+
+                        <a onclick="javascript:Eliminar(@usuario.Id)" class="icon"><img src="/img/borrar.png" /></a> <a asp-action="Actualizar" asp-route-Id="@usuario.Id" class="icon"><img src="/img/editar.png" /></a>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>

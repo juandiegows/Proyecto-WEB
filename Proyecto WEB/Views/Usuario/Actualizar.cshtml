@@ -1,13 +1,12 @@
-﻿@*
-
-*@
-@model Proyecto_WEB.Models.Request.UsuarioRequest
+﻿@model Proyecto_WEB.Models.Request.UsuarioRequest
 <script src="~/js/sweetalert2.min.js">
 
 </script>
 <link rel="stylesheet" href="/css/formulario.css" />
 
-@using (@Html.BeginForm("Index", "Usuario", FormMethod.Post, new { id = "miFormulario", @class = "form" })) {
+@using (@Html.BeginForm("Actualizar", "Usuario", FormMethod.Post, new { id = "miFormulario", @class = "form" })) {
+    @Html.AntiForgeryToken();
+    @Html.HiddenFor(x=> x.Id)
     <div class="form__group">
         @Html.LabelFor(x=> x.Nombre, new { @class = "form__label" })
 
@@ -20,6 +19,7 @@
         @Html.LabelFor(x=> x.FechaNacimiento, new { @class = "form__label" })
 
         <div class="form__sub__group">
+           
             @Html.EditorFor(m => m.FechaNacimiento, new { @class = "form__calendar" })
             @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "text-danger" })
         </div>
@@ -33,21 +33,6 @@
         </div>
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Guardar" />
-
+    <input type="submit" class="btn btn-primary" value="Actualizar" />
+    <a class="btn btn-danger" asp-area="" asp-controller="Usuario" asp-action="consulta">Cancelar</a>
 }
-@if (@ViewBag.Guardo) {
-    <script>
-        const form = document.getElementById("miFormulario");
-        form.reset();
-        Swal.fire(
-            'Se ha Guardado!',
-            'Se ha Guardado correctamente',
-            'success'
-        )
-        @ViewBag.Guardo = false;
-
-    </script>
-
-}
-
