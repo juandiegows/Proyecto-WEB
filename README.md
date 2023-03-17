@@ -44,6 +44,9 @@ y la otra de manejar las vista, tal y como lo pidieron
 * swift alert 2
 * JQuery
 * Boostrap
+* Javascript
+* CSS
+* HTML
 
 ## Vista Previa del Proyecto
 
