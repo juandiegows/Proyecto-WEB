@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Servicio_WCF.Models
 {
@@ -19,11 +20,12 @@ namespace Servicio_WCF.Models
         public virtual DbSet<Usuario> Usuario { get; set; }
 
   
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=DBDigitalBankst;Persist Security Info=True;User ID=sa;Password=12345;TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
+                String cadena = $"Data Source={App.Default.DataSource};Initial Catalog={App.Default.InitialCatalog};Persist Security Info=True;User ID={App.Default.UserID};Password={App.Default.Password};TrustServerCertificate=True;";
+                optionsBuilder.UseSqlServer(cadena, x => x.UseDateOnlyTimeOnly());
             }
         }
 
