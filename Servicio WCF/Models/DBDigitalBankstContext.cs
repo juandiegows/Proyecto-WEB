@@ -25,7 +25,7 @@ namespace Servicio_WCF.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=DBDigitalBankst;Persist Security Info=True;User ID=sa;Password=12345", x => x.UseDateOnlyTimeOnly());
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=DBDigitalBankst;Persist Security Info=True;User ID=sa;Password=12345;TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
             }
         }
 
