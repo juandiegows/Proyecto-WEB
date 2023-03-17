@@ -26,8 +26,8 @@ footer {
     }
 .form {
     margin: auto;
-    width: max-content;
-    min-width: 30rem;
+     width: 30rem;
+     max-width: 100%;
     align-self: center;
     padding: 1rem;
     border: 1px solid #028f76;
