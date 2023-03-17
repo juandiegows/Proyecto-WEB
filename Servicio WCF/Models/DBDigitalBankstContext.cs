@@ -24,7 +24,12 @@ namespace Servicio_WCF.Models
 
             if (!optionsBuilder.IsConfigured)
             {
-                String cadena = $"Data Source={App.Default.DataSource};Initial Catalog={App.Default.InitialCatalog};Persist Security Info=True;User ID={App.Default.UserID};Password={App.Default.Password};TrustServerCertificate=True;";
+                String cadena = "";
+                cadena = $"Data Source={App.Default.DataSource};Initial Catalog={App.Default.InitialCatalog};Persist Security Info=True;User ID={App.Default.UserID};Password={App.Default.Password};TrustServerCertificate=True;";
+
+                if (App.Default.AuthWindow) {
+                    cadena = $"Data Source={App.Default.DataSource};Initial Catalog={App.Default.InitialCatalog};Integrated Security=True;";
+                }
                 optionsBuilder.UseSqlServer(cadena, x => x.UseDateOnlyTimeOnly());
             }
         }

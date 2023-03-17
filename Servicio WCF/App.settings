@@ -14,5 +14,8 @@
     <Setting Name="Password" Type="System.String" Scope="Application">
       <Value Profile="(Default)">12345</Value>
     </Setting>
+    <Setting Name="AuthWindow" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
