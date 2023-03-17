@@ -44,3 +44,16 @@ y la otra de manejar las vista, tal y como lo pidieron
 * swift alert 2
 * JQuery
 * Boostrap
+
+## Vista Previa del Proyecto
+
+![image](https://user-images.githubusercontent.com/65135568/225980423-be578804-d755-4349-9b3c-a5f2baa6f416.png)
+![image](https://user-images.githubusercontent.com/65135568/225980556-bd0fef82-1aa2-4342-940c-07e4fad1203d.png)
+![image](https://user-images.githubusercontent.com/65135568/225980646-3ea93653-c3bd-45b6-8157-2e64468ee85f.png)
+![image](https://user-images.githubusercontent.com/65135568/225980787-46e60514-1a5c-4f2e-91ce-9640e3c302f3.png)
+![image](https://user-images.githubusercontent.com/65135568/225980942-fe4f360f-741b-40fb-8c6b-84db578ada9a.png)
+![image](https://user-images.githubusercontent.com/65135568/225980983-cc04f030-ff10-491b-ad28-0ca7602f1dd5.png)
+![image](https://user-images.githubusercontent.com/65135568/225981047-c007be75-5bbe-47e6-b811-065c095f0226.png)
+![image](https://user-images.githubusercontent.com/65135568/225981105-a24542b1-d41e-47ef-86b0-2aaab353a62b.png)
+![image](https://user-images.githubusercontent.com/65135568/225981155-0f85fefe-691d-4f52-87df-3592b7d83571.png)
+
