@@ -17,6 +17,11 @@ namespace Servicio_WCF.Controllers {
               return  await procedimientos.AgregarAsync(nombre, fechaNacimiento,sexo)  > 0;
             }
         }
+        public List<string> ObtenerTodosSexo() {
+            using (DBDigitalBankstContext model = new DBDigitalBankstContext()) {
+                return model.Sexo.Select(x=> x.Nombre).ToList();
+            }
+        }
 
         public async Task<List<Models.ObtenerResult>> Obtener() {
             using (DBDigitalBankstContext model = new DBDigitalBankstContext()) {

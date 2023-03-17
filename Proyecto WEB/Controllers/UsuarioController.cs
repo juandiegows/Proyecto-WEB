@@ -8,15 +8,16 @@ using Servicio_WCF.Models;
 namespace Proyecto_WEB.Controllers {
     public class UsuarioController : Controller {
         public IActionResult Index(bool guardo = false) {
-            ViewBag.Opciones = new List<string>() { "M", "F" };
+            var usuarioData = new UsuarioData();
+            ViewBag.Opciones = usuarioData.ObtenerTodosSexo();
             ViewBag.Guardo = guardo;
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Index(UsuarioRequest usuario) {
-            ViewBag.Opciones = new List<string>() { "M", "F" };
+            var usuarioData = new UsuarioData();
+            ViewBag.Opciones = usuarioData.ObtenerTodosSexo();
             if (ModelState.IsValid) {
-                var usuarioData = new UsuarioData();
                 await usuarioData.Agregar(usuario.Nombre, usuario.FechaNacimiento, usuario.Sexo);
 
                 return Index(true);
@@ -61,7 +62,7 @@ namespace Proyecto_WEB.Controllers {
                 FechaNacimiento = x.FechaNacimiento,
                 Sexo = x.Sexo
             }).First(x => x.Id == Id);
-            ViewBag.Opciones = new List<string>() { "M", "F" };
+            ViewBag.Opciones = usuarioData.ObtenerTodosSexo();
             return View(usuario);
         }
 
