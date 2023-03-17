@@ -32,7 +32,7 @@ namespace Proyecto_WEB.Controllers {
         [HttpGet]
         public async Task<IActionResult> Consulta(int accion = 0) {
             var usuarioData = new UsuarioData();
-            var lista = await usuarioData.Obtener();
+            var lista = await usuarioData.ObtenerUsuarios();
             ViewBag.Eliminar = false;
             ViewBag.actualizado = false;
             if (accion == 1) {
@@ -49,14 +49,14 @@ namespace Proyecto_WEB.Controllers {
         [HttpGet("Usuario/Eliminar/{Id}")]
         public async Task<IActionResult> Eliminar(int Id) {
             var usuarioData = new UsuarioData();
-            ViewBag.Eliminar = await usuarioData.Eliminar(Id);
+            ViewBag.Eliminar = await usuarioData.EliminarUsuario(Id);
 
             return RedirectToAction("consulta", new { accion = 1});
         }
         [HttpGet]
         public async Task<IActionResult> Actualizar(int Id) {
             var usuarioData = new UsuarioData();
-            var usuario = (await usuarioData.Obtener()).Select(x => new UsuarioRequest() {
+            var usuario = (await usuarioData.ObtenerUsuarios()).Select(x => new UsuarioRequest() {
                 Id = x.Id,
                 Nombre = x.Nombre,
                 FechaNacimiento = x.FechaNacimiento,
@@ -69,7 +69,7 @@ namespace Proyecto_WEB.Controllers {
         [HttpPost]
         public async Task<IActionResult> Actualizar(UsuarioRequest usuario) {
             var usuarioData = new UsuarioData();
-            await usuarioData.Modificar(usuario.Id, usuario.Nombre, usuario.FechaNacimiento, usuario.Sexo);
+            await usuarioData.ModificarUsuario(usuario.Id, usuario.Nombre, usuario.FechaNacimiento, usuario.Sexo);
             return RedirectToAction("consulta", new { accion = 2 });
         }
     }
