@@ -3,15 +3,23 @@ go
 
 use DBDigitalBankst;
 go
-
+CREATE TABLE Sexo (
+	Nombre char(1) NOT NULL PRIMARY KEY)
+GO
 CREATE TABLE Usuario
 (
 Id int primary key identity not null,
 Nombre varchar(100) not null,
 FechaNacimiento date not null,
-Sexo char(1) not null
+Sexo char(1) not null FOREIGN KEY(Sexo)  References Sexo(Nombre)
 );
 go
+
+
+INSERT Sexo ([Nombre]) VALUES (N'F'),(N'M')
+GO
+
+
 
 CREATE PROCEDURE Obtener
 AS
