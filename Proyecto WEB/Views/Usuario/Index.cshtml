@@ -5,9 +5,12 @@
 <script src="~/js/sweetalert2.min.js">
 
 </script>
+
+
+
 <link rel="stylesheet" href="/css/formulario.css" />
 
-@using (@Html.BeginForm("Index", "Usuario", FormMethod.Post, new { id = "miFormulario", @class = "form" })) {
+@using (@Html.BeginForm("Index", "Usuario", FormMethod.Post, new { id = "miFormulario", @class = "form"})) {
     <div class="form__group">
         @Html.LabelFor(x=> x.Nombre, new { @class = "form__label" })
 
@@ -50,4 +53,24 @@
     </script>
 
 }
-
+@section scripts {
+<script>
+    $('#miFormulario').submit(function (event) {
+        event.preventDefault();
+        Swal.fire({
+            title: '¿Está seguro?',
+            text: "¿Desea guardar el registro?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, Guardar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+        })
+    });
+</script>
+}

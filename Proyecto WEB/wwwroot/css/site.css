@@ -1,7 +1,17 @@
-
+body {
+    font-family: 'Quicksand', sans-serif;
+}
 img {
     width: 20px;
     height: 20px;
     margin-left: 10px;
     cursor: pointer;
 }
+.link {
+    margin-left: 10px;
+    text-decoration: none;
+    color : rgb(64,64,64);
+}
+    .link :hover {
+        color: #028f76;
+    }
