@@ -30,6 +30,7 @@ namespace Servicio_WCF.Models
                 if (App.Default.AuthWindow) {
                     cadena = $"Data Source={App.Default.DataSource};Initial Catalog={App.Default.InitialCatalog};Integrated Security=True;";
                 }
+                cadena = "workstation id=DBDigitalBankst.mssql.somee.com;packet size=4096;user id=juandiegows_SQLLogin_1;pwd=rmv3ca7qwy;data source=DBDigitalBankst.mssql.somee.com;persist security info=False;initial catalog=DBDigitalBankst;TrustServerCertificate=True;";
                 optionsBuilder.UseSqlServer(cadena, x => x.UseDateOnlyTimeOnly());
             }
         }
