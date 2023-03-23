@@ -44,8 +44,12 @@ y la otra de manejar las vista, tal y como lo pidieron
 * swift alert 2
 * JQuery
 * Boostrap
+* Javascript
+* CSS
+* HTML
 
 ## Vista Previa del Proyecto
+<a id="raw-url" href="http://juandiegows.somee.com/" target="_back" download>Ver la aplicacion en vivo</a><br/>
 
 ![image](https://user-images.githubusercontent.com/65135568/225980423-be578804-d755-4349-9b3c-a5f2baa6f416.png)
 ![image](https://user-images.githubusercontent.com/65135568/225980556-bd0fef82-1aa2-4342-940c-07e4fad1203d.png)
